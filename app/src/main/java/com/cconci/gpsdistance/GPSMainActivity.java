@@ -40,29 +40,53 @@ public class GPSMainActivity extends AppCompatActivity {
     UI Buttons
     */
     public void buttonClickSetGPSPointA(View v) {
-        Toast.makeText(this, "buttonClickSetGPSPointA", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "buttonClickSetGPSPointA", Toast.LENGTH_LONG).show();
 
         this.locationA = this.locationHandler.getLastLocation();
 
-        ((TextView) findViewById(R.id.textViewLocationAinfo)).setText(
-                "Latitude:"
-                + this.locationA.getLatitude()
-                + " : "
-                + "Longitude:"
-                + this.locationA.getLongitude());
+        if(this.locationA != null) {
+            ((TextView) findViewById(R.id.textViewLocationAinfo)).setText(
+                    "Latitude:"
+                            + this.locationA.getLatitude()
+                            + " : "
+                            + "Longitude:"
+                            + this.locationA.getLongitude());
+        }
+        else {
+            ((TextView) findViewById(R.id.textViewLocationAinfo)).setText("GPS NOT Ready");
+        }
+
+        this.updateLocationDistance();
 
     }
     public void buttonClickSetGPSPointB(View v) {
-        Toast.makeText(this, "buttonClickSetGPSPointB", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this, "buttonClickSetGPSPointB", Toast.LENGTH_LONG).show();
 
         this.locationB = this.locationHandler.getLastLocation();
 
-        ((TextView) findViewById(R.id.textViewLocationBinfo)).setText(
-                "Latitude:"
-                        + this.locationB.getLatitude()
-                        + " : "
-                        + "Longitude:"
-                        + this.locationB.getLongitude());
+        if(this.locationB != null) {
+            ((TextView) findViewById(R.id.textViewLocationBinfo)).setText(
+                    "Latitude:"
+                            + this.locationB.getLatitude()
+                            + " : "
+                            + "Longitude:"
+                            + this.locationB.getLongitude());
+        }
+        else {
+            ((TextView) findViewById(R.id.textViewLocationBinfo)).setText("GPS NOT Ready");
+        }
+
+        this.updateLocationDistance();
+
+    }
+
+    public void updateLocationDistance(){
+        if(this.locationA != null && this.locationB != null) {
+            float distanceInMeters = this.locationA.distanceTo(this.locationB);
+            //update the label
+
+            ((TextView) findViewById(R.id.textViewDistanceBetweenAB)).setText(distanceInMeters+" meters");
+        }
     }
 
     /*
