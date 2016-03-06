@@ -27,7 +27,7 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="..."
-        android:id="@+id/textView"
+        android:id="@+id/textViewLocationAinfo"
         android:gravity="center"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
@@ -41,14 +41,14 @@
         android:gravity="center"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        />
+        android:onClick="buttonClickSetGPSPointA" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="..."
-        android:id="@+id/textView2"
+        android:id="@+id/textViewLocationBinfo"
         android:gravity="center"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
@@ -62,14 +62,14 @@
         android:gravity="center"
         android:paddingTop="5dp"
         android:paddingBottom="5dp"
-        />
+        android:onClick="buttonClickSetGPSPointB" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Distance between A and B"
-        android:id="@+id/textViewD"
+        android:id="@+id/textViewDistanceBetweenAB"
         android:gravity="center"
         android:paddingTop="10dp"
         android:paddingBottom="10dp"
